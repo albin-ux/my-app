@@ -29,15 +29,22 @@ export default function NewMovie() {
 
   function deleteMovie(id) {
     setMovie(movies.filter((item) => item.id !== id));
+
   }
 
   function sortTitle(){
-
+    console.log("hej")
+    movies.sort((a, b) => a.title.localeCompare(b.title))
+    setMovie([...movies]);
   }
 
   function sortGrade(){
-    
+    movies.sort((a, b) => b.grade - a.grade)
+    setMovie([...movies]);
+  
   }
+
+
   return (
     <div>
         <input className="form-control" placeholder="Lägg till en ny film" ref={inputRef}/>
@@ -53,8 +60,9 @@ export default function NewMovie() {
         <ul className="list-group">
             { movies.map(movie => <Movie key={movie.id} item ={movie} deleteMovie={deleteMovie} />)}
         </ul>
-        <button type="submit" className="btn btn-success mt-3" onClick={() => {AddItem()}}>Lägg till film</button>
-        <button type="submit" className="btn btn-success mt-3" onClick={() => {AddItem()}}>Lägg till film</button>
+        <button type="submit" className="btn btn-success mt-3" onClick={() => {sortTitle()}}>Sortera med Title</button>
+        <button type="submit" className="btn btn-success mt-3" onClick={() => {sortGrade()}}>Sortera med grade</button>
+
     </div>
 
   );
