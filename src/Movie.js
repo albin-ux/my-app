@@ -5,6 +5,8 @@ function getStars(grade){
   for(let i=0; i<grade; i++){
 
     star.push(<img src="./star.png" />)
+
+
   }
   return star
 }
@@ -14,8 +16,8 @@ export default function Movie(props){
 
     <li className ="list-group-item">
      {props.item.title}
+     <img onClick={() => {props.deleteMovie(props.item.id)}} src="./delete.png"/>
      {getStars(props.item.grade)}
-     <button className="btn btn-sm btn-danger float-end" onClick={() => {props.deleteMovie(props.item.id)}}>X</button>
     </li>
 
   )
