@@ -22,7 +22,7 @@ export default function NewMovie() {
       }]);
 
       inputRef.current.value = "";
-      anotherRef.current.value = "";
+      anotherRef.current.value = 0;
     }
 
     }
@@ -41,7 +41,7 @@ export default function NewMovie() {
   function sortGrade(){
     movies.sort((a, b) => b.grade - a.grade)
     setMovie([...movies]);
-  
+
   }
 
 
